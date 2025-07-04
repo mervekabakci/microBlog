@@ -2873,10 +2873,17 @@ video {
   padding-top: 5px;
 }
 
-h2 {
-  width: 100px;
+.cards {
+  justify-content: space-evenly;
 }
 
+.card {
+  border: 1px solid black;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}/*# sourceMappingURL=app.css.map */
 .hasan {
   width: 100%;
   background-color: var(--gray-700);
