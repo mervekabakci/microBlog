@@ -21,37 +21,6 @@ ol {
   margin: 0;
   padding: 0;
 }
-html{
-  scroll-behavior: smooth;
-}
-html,body{
-  min-height: 100vh;
-  background-color: var(--white);
-}
-body{
-  font-size: 16px;
-  line-height: 24px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  overflow-x: hidden;
-
-  &::-webkit-scrollbar{
-    background-color: transparent;
-    width: 4px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: gray;
-    width: 4px;
-    /* Chrome, Safari, Edge ve Opera için */
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-    width:4px;
-    /* Chrome, Safari, Edge ve Opera için */
-  }
-}
 
 h1,
 h2,
@@ -62,6 +31,37 @@ h6 {
   font-size: 1em;
   font-weight: normal;
 }
+html,body{
+  min-height: 100vh;
+  background-color:#ffffff;
+}
+body{
+  font-size: 16px;
+  line-height:22px;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+
+  &::-webkit-scrollbar{
+    background-color: transparent;
+    width: 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    width: 0;
+    /* Chrome, Safari, Edge ve Opera için */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    width:0;
+    /* Chrome, Safari, Edge ve Opera için */
+  }
+}
+
 
 /* Links */
 a {
