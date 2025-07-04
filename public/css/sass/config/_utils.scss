@@ -2,7 +2,7 @@
 :root {
   --white: #ffffff;
   --black: #000000;
-  --primary: #0d0e12;
+  --primary: #242424;
   --secondary: #f3213c;
   --bg-color: #ecf0f5;
   --text:#383737;
@@ -21,10 +21,10 @@
 $gutter: 1rem;
 
 /*burada tanımlanan renkler class olarak kullanabılırız*/
-$primary: #0d0e12;
-$secondary: #f3213c;
-$white: #ffffff;
-$black: #000000;
+$primary: var(--primary);
+$secondary: var(--secondary);
+$white: var(--white);
+$black: var(--black);
 $gray-100:var(--gray-100);
 
 $colors: (
