@@ -23,6 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-/public/front/css/app.css
 /public/front/css/app.min.css
 /public/front/css/app.css.map
