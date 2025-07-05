@@ -280,6 +280,20 @@ $display-utils: (
 }
 /*gap end*/
 
+.grids{
+  display: grid;
+  @for $i from 1 through 12 {
+    .col-span-#{$i} {
+      grid-column: span $i;
+    }
+    .row-span-#{$i} {
+      grid-row: span $i;
+    }
+    &.grid-columns-#{$i}{
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+}
 /*line clamp start*/
 @for $i from 1 through 12 {
   .line-clamp_#{$i} {
