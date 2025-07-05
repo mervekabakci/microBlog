@@ -1,4 +1,4 @@
-export default function Header({ user, onSwitch }) {
+export default function Header() {
     const handleClickOpenMenu = (e) => {
         const centerContent = document.querySelector(".center");
         const navbarContent = document.querySelector(".navbar");
@@ -14,10 +14,11 @@ export default function Header({ user, onSwitch }) {
                 <div className="container-md header">
                     <a className="navBrands" href="/">MicroBlog</a>
                     <div className="otherButtons d-lg-none">
-                        {user ? (
+                        {/* {user ? ( */}
+                            {/* Kullanıcı giriş yaptıysa bu yapmadıysa giriş yap butonları gelecek */}
                             <a href="#" className="userButton"><span className="icon-user"></span></a>
                         
-                        ) :"" }
+                        {/* ) :"" } */}
                         
                         <a href="#" className="navToggler" onClick={handleClickOpenMenu}>
                             <span className="line"></span>
