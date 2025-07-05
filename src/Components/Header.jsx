@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({ user, onSwitchLogin, onSwitchRegister, onSwitchHome }) {
     const handleClickOpenMenu = (e) => {
         const centerContent = document.querySelector(".center");
         const navbarContent = document.querySelector(".navbar");
@@ -12,14 +12,11 @@ export default function Header() {
         <>
             <header>
                 <div className="container-md header">
-                    <a className="navBrands" href="/">MicroBlog</a>
-                    <div className="otherButtons d-lg-none">
-                        {/* {user ? ( */}
-                            {/* Kullanıcı giriş yaptıysa bu yapmadıysa giriş yap butonları gelecek */}
-                            <a href="#" className="userButton"><span className="icon-user"></span></a>
-                        
-                        {/* ) :"" } */}
-                        
+                    <a className="navBrands" href="/"  onClick={e => { e.preventDefault(); onSwitchHome(); }}>MicroBlog</a>
+                    <div className="otherButtons d-md-none">
+                        {user ? <a href="#" className="userButton"><span className="icon-user"></span></a>
+                            : ""
+                        }                     
                         <a href="#" className="navToggler" onClick={handleClickOpenMenu}>
                             <span className="line"></span>
                         </a>
@@ -36,10 +33,15 @@ export default function Header() {
                             <li className="navItem"><a href="#" className="navLink">Blog</a></li>
                             <li className="navItem"><a href="#" className="navLink">İletişim</a></li>
                         </ul>
-                        <div className="buttons">
-                            <a href="#" onClick={e => { e.preventDefault(); onSwitch(); }} className="fixBtn button-primary">Giriş Yap</a>
-                            <a href="#" className="fixBtn button-secondary">Kayıt Ol</a>
-                        </div>
+                        {user ? <a href="#" className="userButton"><span className="icon-user"></span></a>
+                            : (
+                                <div className="buttons">
+                                    <a href="#" onClick={e => { e.preventDefault(); onSwitchLogin(); }} className="fixBtn button-primary">Giriş Yap</a>
+                                    <a href="#" onClick={e => {e.preventDefault(); onSwitchRegister(); }} className="fixBtn button-secondary">Kayıt Ol</a>
+                                </div>
+                            )
+                        }
+                        
                     </div>
                 </div>
             </header>
