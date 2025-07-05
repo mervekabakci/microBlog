@@ -1,10 +1,10 @@
-export default function Login({ onSwitch, onLogin }) {
+export default function Login({ onSwitch, onLogin, getData }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const email = formData.get('email');
     const sifre = formData.get('sifre');
-    const data = getSafeLocalStorageData();
+    const data = getData;
 
     if (data && data.email === email && data.sifre === sifre) {
       onLogin(data);

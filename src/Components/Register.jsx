@@ -1,10 +1,11 @@
-export default function Register({ onSwitch }) {
+export default function Register({ onSwitch, getData }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formObj = Object.fromEntries(formData);
 
-    const exitingData = getSafeLocalStorageData();
+    const exitingData = getData;
+
     if (exitingData && exitingData.email === formObj.email) {
       alert('Bu e-posta adresi ile zaten bir hesap var!');
       return;
@@ -72,23 +73,5 @@ export default function Register({ onSwitch }) {
       </div>
     </form>
   )
-}
-
-function getSafeLocalStorageData() {
-  let data = null;
-
-  try {
-    data = localStorage.data ? JSON.parse(localStorage.data) : null;
-    // LS'da 'data' varsa onu JSON.parse ile nesneye çeviriyor yoksa null olarak bırakıyor
-  } catch (e) {
-    // Eğer JSON.parse sırasında bir hata olursa (bozuk veri olması vb...);
-    localStorage.removeItem('data');
-    // LS'dan data anahtarını siler
-
-    // localStorage.clear() -> tüm LS'daki verileri siler
-    // LS'dan tüm verileri siler
-    data = null;
-  }
-  return data;
 }
 
