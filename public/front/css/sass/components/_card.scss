@@ -14,3 +14,108 @@
     }
   }
 }
+.blogCards {
+  margin-block: 50px;
+  gap: 50px 20px;
+  @media screen and (max-width: 991.98px) {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @media screen and (max-width: 991.98px) {
+      aspect-ratio: 9/6;
+    }
+    .card-body {
+      display: flex;
+      align-items: stretch;
+      height: 100%;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      .card-content {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: var(--white);
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 10px;
+
+        .card-title {
+          font-size: 18px;
+          line-height: 24px;
+          color: var(--primary);
+          font-weight: 600;
+          transition: all 0.3s linear;
+        }
+        p {
+          font-size: 14px;
+          line-height: 22px;
+          color: var(--text);
+        }
+        .moreButton {
+          font-size: 14px;
+          color: var(--text);
+          font-weight: 600;
+          display: inline-block;
+          margin-top: auto;
+          transition: all 0.3s linear;
+        }
+      }
+      .card-img {
+        width: 50%;
+        height: 100%;
+        img {
+          transition: all 0.3s linear;
+        }
+      }
+      @media screen and (min-width: 992px) {
+        &:hover {
+          .card-img {
+            img {
+              transform: scale(1.1);
+            }
+          }
+          .card-content {
+            .card-title,
+            .moreButton {
+              color: var(--secondary);
+            }
+            .moreButton {
+              transform: translateX(10px);
+            }
+          }
+        }
+      }
+    }
+
+    .card-footer {
+      position: absolute;
+    }
+  }
+  .col-span-2 {
+    &.row-span-2 {
+      .card {
+        .card-body {
+          .card-img {
+            width: 100%;
+          }
+          .card-content {
+            position: absolute;
+            height: 50%;
+            width: 50%;
+            border-radius: 20px 0 0 0;
+          }
+        }
+      }
+    }
+  }
+}

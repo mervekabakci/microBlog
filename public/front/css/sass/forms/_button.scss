@@ -18,6 +18,7 @@ button{
     position: relative;
     z-index: 1;
     overflow: hidden;
+    gap: 10px;
     &:after{
         content: "";
         position: absolute;
