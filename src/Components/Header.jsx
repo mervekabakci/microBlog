@@ -1,16 +1,34 @@
 export default function Header() {
-
+    const handleClickOpenMenu = (e) => {
+        const centerContent = document.querySelector(".center");
+        const navbarContent = document.querySelector(".navbar");
+        e.target.classList.toggle("active");
+        navbarContent.classList.toggle("opened");
+        centerContent.classList.toggle("openedMenu");
+        body.classList.toggle("overflow-hidden");
+    }
 
     return (
         <>
             <header>
-                <div className="container header">
-                    <a href="/">Logo</a>
+                <div className="container-md header">
+                    <a className="navBrands" href="/">MicroBlog</a>
+                    <div className="otherButtons d-lg-none">
+                        {/* {user ? ( */}
+                            {/* Kullanıcı giriş yaptıysa bu yapmadıysa giriş yap butonları gelecek */}
+                            <a href="#" className="userButton"><span className="icon-user"></span></a>
+                        
+                        {/* ) :"" } */}
+                        
+                        <a href="#" className="navToggler" onClick={handleClickOpenMenu}>
+                            <span className="line"></span>
+                        </a>
+                    </div>
                     <div className="navbar">
                         <div className="searchColumn">
                             <form>
-                                <input type="text" className="searchBlog" id="searchBlog" />
-                                <button className="fixBtn">Ara</button>
+                                <input type="text" name="searchBlog" className="searchBlog" id="searchBlog" placeholder="Blog..." />
+                                <button className="searchButton"><span className="icon-search"></span></button>
                             </form>
                         </div>
                         <ul className="nav">
@@ -18,6 +36,10 @@ export default function Header() {
                             <li className="navItem"><a href="#" className="navLink">Blog</a></li>
                             <li className="navItem"><a href="#" className="navLink">İletişim</a></li>
                         </ul>
+                        <div className="buttons">
+                            <a href="#" onClick={e => { e.preventDefault(); onSwitch(); }} className="fixBtn button-primary">Giriş Yap</a>
+                            <a href="#" className="fixBtn button-secondary">Kayıt Ol</a>
+                        </div>
                     </div>
                 </div>
             </header>
