@@ -3489,7 +3489,7 @@ video {
 }
 .blogCards .card .card-body .card-img {
   width: 50%;
-  height: 100%;
+  aspect-ratio: 1/1;
 }
 .blogCards .card .card-body .card-img img {
   transition: all 0.3s linear;
@@ -4094,4 +4094,5 @@ button {
   padding-top: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: calc(100vh - 130px);
 }
