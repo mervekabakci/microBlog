@@ -3702,6 +3702,21 @@ header .navBrands {
   flex: 1;
 }
 
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body .logoutBtn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 991.98px) {
   .navToggler {
     display: inline-flex;
@@ -4094,4 +4109,4 @@ button {
   padding-top: 20px;
   max-width: 1200px;
   margin: 0 auto;
-}
+}/*# sourceMappingURL=app.css.map */
