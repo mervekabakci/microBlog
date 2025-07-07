@@ -45,13 +45,12 @@ export default function Header({ user, darkMode,setDarkMode, shiningMode, setShi
                             </form>
                         </div>
                         <ul className="nav">
-                            <li className="navItem"><a href="#" className="navLink">Anasayfa</a></li>
-                            <li className="navItem"><a href="#" className="navLink">Blog</a></li>
-                            <li className="navItem"><a href="#" className="navLink">İletişim</a></li>
+                            <li className="navItem"><Link to="/" className="navLink">Anasayfa</Link></li>
+                            <li className="navItem"><Link to="/blog" className="navLink">Blog</Link></li>
                         </ul>
                         <div className="buttons">
                             {user ?
-                                <Link className="userButton d-none d-md-flex" path="/giris"><span className="icon-user"></span></Link>
+                                <Link className="userButton d-none d-md-flex" to="/giris"><span className="icon-user"></span></Link>
                                 : (
                                     <>
                                         <Link className="fixBtn button-primary" to="/giris">Giriş Yap</Link>
