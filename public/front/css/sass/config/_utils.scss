@@ -1,12 +1,13 @@
 @use "sass:math";
+
 :root {
   --white: #ffffff;
   --black: #000000;
   --primary: #242424;
   --secondary: #f3213c;
-  --tertiary:#201e94;
+  --tertiary: #201e94;
   --bg-color: #ecf0f5;
-  --text:#383737;
+  --text: #383737;
 
   --gray: #ecf0f5;
   --gray-100: #e3e6eb;
@@ -19,6 +20,7 @@
   --gray-800: #6b6b6b;
   --gray-900: #5c5b5b;
 }
+
 $gutter: 1rem;
 
 /*burada tanımlanan renkler class olarak kullanabılırız*/
@@ -27,15 +29,15 @@ $secondary: var(--secondary);
 $tertiary: var(--tertiary);
 $white: var(--white);
 $black: var(--black);
-$gray-100:var(--gray-100);
-$gray-200:var(--gray-200);
-$gray-300:var(--gray-300);
-$gray-400:var(--gray-400);
-$gray-500:var(--gray-500);
-$gray-600:var(--gray-600);
-$gray-700:var(--gray-700);
-$gray-800:var(--gray-800);
-$gray-900:var(--gray-900);
+$gray-100: var(--gray-100);
+$gray-200: var(--gray-200);
+$gray-300: var(--gray-300);
+$gray-400: var(--gray-400);
+$gray-500: var(--gray-500);
+$gray-600: var(--gray-600);
+$gray-700: var(--gray-700);
+$gray-800: var(--gray-800);
+$gray-900: var(--gray-900);
 
 $colors: (
   "primary": $primary,
@@ -53,6 +55,7 @@ $colors: (
   "gray-800":$gray-800,
   "gray-900":$gray-900,
 );
+
 //bg-primary seklınde burada tanımlanan renklerı kullanarak bg rengını class ıle degıstırebılır
 //Ayrıca bu sayede tema seceneklerı de olusturabılırız.
 @mixin generate-background-classes($colors) {
@@ -62,6 +65,7 @@ $colors: (
     }
   }
 }
+
 @include generate-background-classes($colors);
 //backgorund class name end
 
@@ -80,31 +84,39 @@ $colors: (
           }
         }
 
-        @if $name == "white" {
+        @if $name =="white" {
           color: $primary !important;
-          &:after{
-            background-color: $primary!important;
-          }
-        } @else {
-          color: $white !important;
-          &:after{
-            background-color: $white!important;
+
+          &:after {
+            background-color: $primary !important;
           }
         }
 
-     
-        &-outline{
-          background-color: rgba(0,0,0,0)!important;
-          color: $color!important;
-          border-color: $color!important;
-          &:after{
-            background-color: $color!important;
+        @else {
+          color: $white !important;
+
+          &:after {
+            background-color: $white !important;
           }
+        }
+
+
+        &-outline {
+          background-color: rgba(0, 0, 0, 0) !important;
+          color: $color !important;
+          border-color: $color !important;
+
+          &:after {
+            background-color: $color !important;
+          }
+
           @media screen and (min-width:992px) {
-            &:hover{
-              @if $name == "white" {
+            &:hover {
+              @if $name =="white" {
                 color: $primary !important;
-              } @else {
+              }
+
+              @else {
                 color: $white !important;
               }
             }
@@ -121,19 +133,23 @@ $colors: (
 
 //container breakpoint tanımlamaları
 @mixin min($bp, $max: "null", $device: "screen") {
-  @if $max == "null" {
+  @if $max =="null" {
     @media only #{$device} and (min-width: #{$bp}) {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @media only #{$device} and (min-width: #{$bp}) and (max-width: #{$max}) {
       @content;
     }
   }
 }
+
 @function bp($bp) {
   @return map-get($breakpoints, $bp);
 }
+
 //ekran ölçü aralıklarının tanımlanması
 $breakpoints: (
   xs: 320px,
@@ -145,9 +161,11 @@ $breakpoints: (
   xxxl: 1700px,
   big: 1920px,
 );
+
 @function container($container-size, $true-val: false) {
   @return map-get($container-sizes, $container-size);
 }
+
 $container-sizes: (
   xs: map-get($breakpoints, xs),
   sm: map-get($breakpoints, sm),
@@ -158,6 +176,7 @@ $container-sizes: (
   xxxl: map-get($breakpoints, xxxl),
   big: map-get($breakpoints, big),
 );
+
 .container {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -166,19 +185,23 @@ $container-sizes: (
     margin: 0 auto;
 
     @each $bp, $container-size in $container-sizes {
-      @include min(#{bp(#{$bp})}) {
-        width: 100%;
-        max-width: container(#{$bp});
-      }
+      @include min(#{bp(#{$bp})
+
+    }) {
+      width: 100%;
+      max-width: container(#{$bp});
     }
   }
 }
+}
+
 @each $bp, $container-size in $container-sizes {
   .container-#{$bp} {
     margin: 0 auto;
     padding-right: 30px;
     padding-left: 30px;
     width: 100%;
+
     @media screen and (max-width: 991.98px) {
       padding-left: 16px;
       padding-right: 16px;
@@ -194,17 +217,18 @@ $container-sizes: (
   }
 }
 
-.row {
+row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -($gutter / 2);
-  margin-right: -($gutter / 2);
+  margin-left: calc(-#{$gutter} / 2);
+  margin-right: calc(-#{$gutter} / 2);
 }
 
 [class*="col-"] {
-  padding-left: ($gutter / 2);
-  padding-right: ($gutter / 2);
-  & > * {
+  padding-left: calc(#{$gutter} / 2);
+  padding-right: calc(#{$gutter} / 2);
+
+  &>* {
     width: 100%;
   }
 }
@@ -212,8 +236,10 @@ $container-sizes: (
 //col sınıfları olusturmak ıcın
 //$breakpoint bunun ıcerısınde tanımlanmıs olan px olculerını ekran olculerı olarak alır.
 @mixin generate-cols($breakpoint, $min-width) {
+
   //1 den 12 ye kadar değer uretıyoruz burayı arttırdıkca col-1 den col-12 ye kadar gıderken bu aralıgı buradan degıstırebılırız
   @for $i from 1 through 12 {
+
     //burada da media query icin classlarımızı belırlıyoruz
     //col-md-576px gibi degerlerı css ıcerısınde tum belırtılen pointlerle bırlıkte olusturur ve bız bunları class olarak kullanırız.
     .col-#{$breakpoint}-#{$i} {
@@ -230,6 +256,7 @@ $container-sizes: (
     }
   }
 }
+
 //burada ise tum classları yukarıdaki mix yapısına gore generate eder
 @each $name, $size in $breakpoints {
   @include generate-cols($name, $size);
@@ -244,7 +271,9 @@ $display-utils: (
   "inline-flex": inline-flex,
   "grid": grid,
 );
+
 @mixin generate-display-classes($displays, $breakpoints) {
+
   // Global sınıflar: d-flex, d-block, vs.
   @each $key, $value in $displays {
     .d-#{$key} {
@@ -263,6 +292,7 @@ $display-utils: (
     }
   }
 }
+
 @include generate-display-classes($display-utils, $breakpoints);
 
 /*gap start*/
@@ -270,6 +300,7 @@ $display-utils: (
   .gap-#{$i} {
     gap: #{($i * 5)}px;
   }
+
   @each $bp-name, $bp-size in $breakpoints {
     @media (min-width: $bp-size) {
       .gap-#{$bp-name}-#{$i} {
@@ -278,22 +309,27 @@ $display-utils: (
     }
   }
 }
+
 /*gap end*/
 
-.grids{
+.grids {
   display: grid;
+
   @for $i from 1 through 12 {
     .col-span-#{$i} {
       grid-column: span $i;
     }
+
     .row-span-#{$i} {
       grid-row: span $i;
     }
-    &.grid-columns-#{$i}{
+
+    &.grid-columns-#{$i} {
       grid-template-columns: repeat($i, 1fr);
     }
   }
 }
+
 /*line clamp start*/
 @for $i from 1 through 12 {
   .line-clamp_#{$i} {
@@ -304,4 +340,5 @@ $display-utils: (
     -webkit-line-clamp: $i;
   }
 }
+
 /*line clamp end*/

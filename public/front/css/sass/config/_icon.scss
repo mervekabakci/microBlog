@@ -25,11 +25,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-dark-mode:before {
+  content: "\e916";
+}
+.icon-light-mode:before {
+  content: "\e917";
+}
 .icon-search:before {
   content: "\e915";
 }
-
 .icon-arrow-left:before {
   content: "\e900";
 }

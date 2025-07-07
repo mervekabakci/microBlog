@@ -1,5 +1,5 @@
 export default function BlogDetails() {
-    return(
+    return (
         <>
             <div className="bannerWrapper">
                 <div className="desc">
@@ -26,7 +26,7 @@ export default function BlogDetails() {
                         <li>Lorem ipsum dolor sit amet.</li>
                         <li>Lorem ipsum dolor sit amet.</li>
                     </ul>
-                      Lorem ipsum dolor, <a href="#">sit amet consectetur</a> adipisicing elit. Veniam ex beatae quasi, hic voluptas consequuntur voluptatum ducimus perferendis nemo praesentium architecto expedita illo sed veritatis et atque suscipit provident corporis.
+                    Lorem ipsum dolor, <a href="#">sit amet consectetur</a> adipisicing elit. Veniam ex beatae quasi, hic voluptas consequuntur voluptatum ducimus perferendis nemo praesentium architecto expedita illo sed veritatis et atque suscipit provident corporis.
                     <br /><br />
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat autem beatae fugit voluptatum nisi eum pariatur iusto, repudiandae cupiditate labore nemo, officia asperiores corporis, vitae commodi consectetur at dolores non?
                     <ol>
@@ -49,7 +49,7 @@ export default function BlogDetails() {
                             <div className="userName">Kullanıcı Adı</div>
                             <div className="userComment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, cupiditate veniam sint sed dolorem est inventore architecto quasi sit. Sequi recusandae nobis in officia! Ad labore quod nesciunt. Quia, quod suscipit! Unde harum necessitatibus voluptas veritatis et esse aliquid deserunt expedita eaque eveniet vel tempora hic qui quibusdam quidem quaerat natus dolorum temporibus nihil voluptate, libero ratione! Nesciunt quis aliquam eveniet fuga. Cupiditate eaque, corporis magnam illo unde veniam ratione exercitationem a impedit quo quas expedita dolorum nisi sequi voluptas quis cumque quae earum vero? Vero, quia ipsum in qui odit a labore ducimus, rem at dolores velit, harum optio.</div>
                         </div>
-                         <div className="commentItem">
+                        <div className="commentItem">
                             <div className="userName">Kullanıcı Adı</div>
                             <div className="userComment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, cupiditate veniam sint sed dolorem est inventore architecto quasi sit. Sequi recusandae nobis in officia! Ad labore quod nesciunt. Quia, quod suscipit! Unde harum necessitatibus voluptas veritatis et esse aliquid deserunt expedita eaque eveniet vel tempora hic qui quibusdam quidem quaerat natus dolorum temporibus nihil voluptate, libero ratione! Nesciunt quis aliquam eveniet fuga. Cupiditate eaque, corporis magnam illo unde veniam ratione exercitationem a impedit quo quas expedita dolorum nisi sequi voluptas quis cumque quae earum vero? Vero, quia ipsum in qui odit a labore ducimus, rem at dolores velit, harum optio.</div>
                         </div>
