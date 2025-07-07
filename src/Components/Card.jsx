@@ -60,6 +60,9 @@ export default function Card() {
                     </div>
                 </div>
             </div>
+            <div className="text-center">
+                <button className="fixBtn button-primary allBlogs">Tüm Bloglar</button>
+            </div>
         </>
     )
 }
