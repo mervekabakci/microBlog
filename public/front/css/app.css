@@ -129,9 +129,9 @@ video {
   --black: #000000;
   --primary: #242424;
   --secondary: #f3213c;
-  --tertiary:#201e94;
+  --tertiary: #201e94;
   --bg-color: #ecf0f5;
-  --text:#383737;
+  --text: #383737;
   --gray: #ecf0f5;
   --gray-100: #e3e6eb;
   --gray-200: #cecfd1;
@@ -933,16 +933,16 @@ video {
   }
 }
 
-.row {
+row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
+  margin-left: calc(-1rem / 2);
+  margin-right: calc(-1rem / 2);
 }
 
 [class*=col-] {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: calc(1rem / 2);
+  padding-right: calc(1rem / 2);
 }
 [class*=col-] > * {
   width: 100%;
@@ -3300,6 +3300,14 @@ video {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-dark-mode:before {
+  content: "\e916";
+}
+
+.icon-light-mode:before {
+  content: "\e917";
+}
+
 .icon-search:before {
   content: "\e915";
 }
@@ -3411,6 +3419,10 @@ video {
   padding-top: 5px;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .cards {
   padding: 30px 0;
 }
@@ -3489,7 +3501,7 @@ video {
 }
 .blogCards .card .card-body .card-img {
   width: 50%;
-  height: 100%;
+  aspect-ratio: 1/1;
 }
 .blogCards .card .card-body .card-img img {
   transition: all 0.3s linear;
@@ -4101,6 +4113,89 @@ button {
   color: var(--text);
 }
 
+.theme-dark {
+  background-color: rgb(45, 45, 45);
+}
+.theme-dark footer {
+  background-color: rgb(30, 30, 30);
+}
+.theme-dark footer .footer {
+  background-color: rgb(30, 30, 30);
+}
+.theme-dark footer .copyRight {
+  color: var(--white);
+}
+.theme-dark header {
+  background-color: rgb(59, 59, 59);
+}
+.theme-dark .navBrands,
+.theme-dark header div .navbar .nav a {
+  color: white;
+}
+.theme-dark .searchColumn,
+.theme-dark .searchBlog,
+.theme-dark .sarchButton,
+.theme-dark .icon-search {
+  background-color: rgb(197, 197, 197);
+  color: rgb(40, 40, 40);
+}
+.theme-dark .blogCards .col-span-2 .card .card-body .card-content {
+  background-color: rgb(60, 60, 60);
+}
+.theme-dark .blogCards .col-span-2 .card .card-body .card-content .card-title,
+.theme-dark .blogCards .col-span-2 .card .card-body .card-content .card-description,
+.theme-dark .blogCards .col-span-2 .card .card-body .card-content .moreButton {
+  color: white;
+}
+.theme-dark .mid-light .blogCards .col-span-2 .card {
+  box-shadow: 0 0 12px 2px white;
+  border-radius: 22px;
+}
+.theme-dark .mid-light .bannerSlider,
+.theme-dark .mid-light .bannerWrapper {
+  box-shadow: 0 0 16px 2px white;
+  border-radius: 22px;
+}
+.theme-dark .bannerWrapper .desc .title,
+.theme-dark .bannerWrapper .desc p {
+  color: white;
+}
+.theme-dark .pageContentWrapper .paragraph {
+  color: white;
+}
+.theme-dark .commentWrapper form textarea {
+  border: dashed 1px rgb(90, 90, 90);
+  background-color: rgb(50, 50, 50);
+}
+.theme-dark .commentWrapper form label {
+  color: white;
+}
+.theme-dark .commentWrapper .commentResult .commentItem {
+  background-color: rgb(197, 197, 197);
+}
+.theme-dark .login-form,
+.theme-dark .register-form {
+  background-color: rgb(60, 60, 60);
+}
+.theme-dark .login-form div label,
+.theme-dark .register-form div label {
+  color: white;
+}
+.theme-dark .login-form button,
+.theme-dark .register-form button {
+  background-color: rgb(45, 45, 45);
+}
+.theme-dark .login-form div label input,
+.theme-dark .login-form div label select,
+.theme-dark .register-form div label input,
+.theme-dark .register-form div label select {
+  background-color: rgb(220, 220, 220);
+}
+.theme-dark .login-form .fixBtn,
+.theme-dark .register-form .fixBtn {
+  transition: all ease 0.4s;
+}
+
 .main {
   padding-top: 70px;
 }
@@ -4109,4 +4204,5 @@ button {
   padding-top: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: calc(100vh - 130px);
 }/*# sourceMappingURL=app.css.map */

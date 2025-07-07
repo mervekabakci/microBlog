@@ -42,7 +42,7 @@ export default function BlogDetails() {
                     <form>
                         <label htmlFor="comment">Yorum Yap</label>
                         <textarea name="comment" id="comment"></textarea>
-                        <button className="fixBtn button-secondary"><span class="icon-comment"></span> Yorum Yap</button>
+                        <button className="fixBtn button-secondary"><span className="icon-comment"></span> Yorum Yap</button>
                     </form>
                     <div className="commentResult">
                         <div className="commentItem">

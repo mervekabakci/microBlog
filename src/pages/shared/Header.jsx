@@ -1,20 +1,34 @@
-export default function Header({ user, onSwitchLogin, onSwitchRegister, onSwitchHome, darkMode, setDarkMode, setUser }) {
+import Layout from '../layout/layout';
+import Login from "../auth/Login";
+import Register from "../auth/Register";
+import Home from "../home/Home";
+import { Link } from 'react-router-dom';
+
+export default function Header({ user, darkMode,setDarkMode, shiningMode, setShiningMode}) {
+
+
+    const toggleTheme = () => {
+        setDarkMode(prev => !prev);
+    };
+
+    const toggleShining = () => {
+        setShiningMode(prev => !prev);
+    };
+
     const handleClickOpenMenu = (e) => {
         const centerContent = document.querySelector(".center");
         const navbarContent = document.querySelector(".navbar");
-        const body = document.body;
 
         e.target.classList.toggle("active");
         navbarContent.classList.toggle("opened");
         centerContent.classList.toggle("openedMenu");
-        body.classList.toggle("overflow-hidden");
     }
 
     return (
         <>
             <header>
                 <div className="container-md header">
-                    <a className="navBrands" href="/" onClick={e => { e.preventDefault(); onSwitchHome(); }}>MicroBlog</a>
+                    <Link className="navBrands" to="/">MicroBlog</Link>
                     <div className="otherButtons d-md-none">
                         {user ? <a href="#" className="userButton"><span className="icon-user"></span></a>
                             : ""
@@ -35,31 +49,28 @@ export default function Header({ user, onSwitchLogin, onSwitchRegister, onSwitch
                             <li className="navItem"><a href="#" className="navLink">Blog</a></li>
                             <li className="navItem"><a href="#" className="navLink">İletişim</a></li>
                         </ul>
-                        {user ? (
-                            <div className="userArea">
-                                <a href="#" className="userButton"><span className="icon-user"></span></a>
-                                <a href="/">
-                                    <button
-                                        className="fixBtn button-danger logoutBtn"
-                                        onClick={() => setUser(null)}
-                                    >
-                                        Çıkış Yap
-                                    </button>
-                                </a>
-                            </div>
-                        ) : (
-                            <div className="buttons">
-                                <a href="#" onClick={e => { e.preventDefault(); onSwitchLogin(); }} className="fixBtn button-primary">Giriş Yap</a>
-                                <a href="#" onClick={e => { e.preventDefault(); onSwitchRegister(); }} className="fixBtn button-secondary">Kayıt Ol</a>
-                            </div>
-                        )}
+                        <div className="buttons">
+                            {user ?
+                                <Link className="userButton d-none d-md-flex" path="/giris"><span className="icon-user"></span></Link>
+                                : (
+                                    <>
+                                        <Link className="fixBtn button-primary" to="/giris">Giriş Yap</Link>
+                                        <Link className="fixBtn button-secondary" to="/kayit">Kayıt Ol</Link>
+                                    </>
+                                )
+                            }
 
-
-                        <div>
-                            <button className="darkBtn" onClick={() => setDarkMode(!darkMode)}>
-                                {darkMode ? "☀️ Light" : "🌙 Dark"}
+                            <button className={`themeBtn ${!darkMode ? 'darkMode' : ''}`}
+                                onClick={() => setDarkMode(prev => !prev)}
+                                onContextMenu={(e) => {
+                                    e.preventDefault();
+                                    setShiningMode(prev => !prev) }
+                                }
+                                >
+                                {darkMode ? <span className="icon-light-mode"></span> : <span className="icon-dark-mode"></span>}
                             </button>
                         </div>
+
 
                     </div>
                 </div>
