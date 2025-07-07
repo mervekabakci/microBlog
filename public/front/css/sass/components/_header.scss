@@ -74,3 +74,22 @@ header {
     flex: 1;
   }
 }
+
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body .logoutBtn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+// body.dark .logoutBtn {
+//   background-color: #ff4d4d;
+// }

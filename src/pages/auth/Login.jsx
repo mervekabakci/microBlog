@@ -39,7 +39,7 @@ export default function Login() {
           <input type="password" value={sifre} onChange={e => setSifre(e.target.value)} required />
         </label>
       </div>
-      <button type="submit">Giriş Yap</button>
+      <button type="submit" className='fixBtn'>Giriş Yap</button>
     </form>
   );
 }

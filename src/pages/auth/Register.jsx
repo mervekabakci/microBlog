@@ -70,7 +70,7 @@ export default function Register({ onSwitch }) {
         </label>
       </div>
       <div className='switch-link'>
-        <button type="submit">Kayıt Ol</button>
+        <button type="submit" className='fixBtn'>Kayıt Ol</button>
         <span>
           Hesabın var mı?{' '}
           <a href="#" onClick={e => { e.preventDefault(); onSwitch(); }}>Giriş Yap</a>
