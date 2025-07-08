@@ -3425,6 +3425,9 @@ row {
 
 .cards {
   padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 .cards .card {
   border: 1px solid black;
@@ -3435,6 +3438,9 @@ row {
 }
 .cards .card .card-img .imageWrapper {
   aspect-ratio: 9/6;
+}
+.cards.half .card {
+  width: calc(50% - 15px);
 }
 
 .blogCards {
@@ -4205,4 +4211,4 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   min-height: calc(100vh - 130px);
-}/*# sourceMappingURL=app.css.map */
+}

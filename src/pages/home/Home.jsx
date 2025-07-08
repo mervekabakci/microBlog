@@ -1,17 +1,13 @@
 import BannerSlider from "../../Components/BannerSlider";
 import Card from "../../Components/Card";
-import Login from "../auth/Login";
-import Register from "../auth/Register";
 
-export default function Home() {
+export default function Home({ postList=[] }) {
     return(
       <div className="container-md"> 
           <div className="bannerWrapper homeBannerWrapper">
             <BannerSlider />
           </div>
-          <Card />
-          <Login />
-          <Register />
+          <Card postList={postList} />
       </div>
     )
 }
