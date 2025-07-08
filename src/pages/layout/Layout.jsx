@@ -5,10 +5,8 @@ import Footer from "../shared/Footer";
 export default function Layout({ children }) {
     const [user, setUser] = useState(null);
     const [showLogin, setShowLogin] = useState(true);
-    const [isLoading, setLoading] = useState(true);
     const [darkMode, setDarkMode] = useState(false);
     const [shiningMode, setShiningMode] = useState(false);
-    // const [userData, setUserData] = useState({ users: [] });
 
     useEffect(() => {
         if (shiningMode) {
@@ -27,18 +25,6 @@ export default function Layout({ children }) {
             document.body.classList.remove("theme-dark");
         }
     }, [darkMode]);
-
-    // useEffect(() => {
-    //     fetch('https://blog.muratakdemir.tr/swagger/v1/swagger.json')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setUser(data.path.post || []);
-    //             setLoading(false);
-    //         })
-    //         .catch(() => setLoading(false));
-    // }, []);
-
-    console.log('data :' + user);
 
     useEffect(() => {
         if (localStorage.loggedInUser) {

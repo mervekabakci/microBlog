@@ -3,48 +3,27 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 // import required modules
 
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
-export default function BannerSlider(){
+export default function BannerSlider({ postList }){
     return(
         <>
-            <Swiper navigation={true} modules={[Navigation]} className="bannerSlider">
-                <SwiperSlide>
-                    <div className="desc">
-                        <div className="title">
-                            Blog Başlık
+            <Swiper navigation={false} pagination={{ clickable:true }} modules={[Navigation, Pagination]} className="bannerSlider">
+                {postList.map((post) => (
+
+                    <SwiperSlide>
+                        <div key={post.id} className="desc">
+                            <div className="title">
+                                {post.title}
+                            </div>
+                            <p>{post.brief}</p>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, aperiam?</p>
-                    </div>
-                    <div className="bannerImg">
-                        <img src="https://picsum.photos/seed/picsum/200/300" alt="" />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="desc">
-                        <div className="title">
-                            Blog Başlık
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, aperiam?</p>
-                    </div>
-                    <div className="bannerImg">
-                        <img src="https://picsum.photos/seed/picsum/200/300" alt="" />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="desc">
-                        <div className="title">
-                            Blog Başlık
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, aperiam?</p>
-                    </div>
-                    <div className="bannerImg">
-                        <img src="https://picsum.photos/seed/picsum/200/300" alt="" />
-                    </div>
-                </SwiperSlide>
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </>
     )
