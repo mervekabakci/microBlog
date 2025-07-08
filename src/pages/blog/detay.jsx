@@ -1,41 +1,20 @@
-export default function BlogDetails() {
+export default function BlogDetails({ postList, index}) {
+    console.log("data : " + postList)
+    if (!postList) return <div>Yükleniyor...</div>;
+
     return (
         <>
             <div className="bannerWrapper">
                 <div className="desc">
                     <div className="title">
-                        Blog Başlık
+                        {postList[index].title}
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, aperiam?</p>
-                </div>
-                <div className="bannerImg">
-                    <img src="https://picsum.photos/seed/picsum/200/300" alt="" />
+                    <p>{postList[index].brief}</p>
                 </div>
             </div>
             <div className="pageContentWrapper">
                 <div className="paragraph">
-                    Lorem, ipsum dolor sit amet consectetur <b>adipisicing</b> elit. Dolorum, pariatur.
-                    <br /><br />
-                    Lorem ipsum dolor, <a href="#">sit amet consectetur</a> adipisicing elit. Veniam ex beatae quasi, hic voluptas consequuntur voluptatum ducimus perferendis nemo praesentium architecto expedita illo sed veritatis et atque suscipit provident corporis.
-                    <br /><br />
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat autem beatae fugit voluptatum nisi eum pariatur iusto, repudiandae cupiditate labore nemo, officia asperiores corporis, vitae commodi consectetur at dolores non?
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                    Lorem ipsum dolor, <a href="#">sit amet consectetur</a> adipisicing elit. Veniam ex beatae quasi, hic voluptas consequuntur voluptatum ducimus perferendis nemo praesentium architecto expedita illo sed veritatis et atque suscipit provident corporis.
-                    <br /><br />
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat autem beatae fugit voluptatum nisi eum pariatur iusto, repudiandae cupiditate labore nemo, officia asperiores corporis, vitae commodi consectetur at dolores non?
-                    <ol>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                    </ol>
+                   {postList[index].content}
                 </div>
 
                 <div className="commentWrapper">

@@ -1,20 +1,6 @@
-import Layout from '../layout/layout';
-import Login from "../auth/Login";
-import Register from "../auth/Register";
-import Home from "../home/Home";
 import { Link } from 'react-router-dom';
 
-export default function Header({ user, darkMode,setDarkMode, shiningMode, setShiningMode}) {
-
-
-    const toggleTheme = () => {
-        setDarkMode(prev => !prev);
-    };
-
-    const toggleShining = () => {
-        setShiningMode(prev => !prev);
-    };
-
+export default function Header({ user, darkMode,setDarkMode, setShiningMode}) {
     const handleClickOpenMenu = (e) => {
         const centerContent = document.querySelector(".center");
         const navbarContent = document.querySelector(".navbar");
