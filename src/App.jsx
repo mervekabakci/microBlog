@@ -3,11 +3,11 @@ import Home from './pages/home/Home';
 import Layout from './pages/layout/layout';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
-import Blog from './pages/blog';
-import BlogDetails from './pages/blog/detay';
+import Blog from './pages/blog/page';
+import BlogDetails from "./pages/blog/BlogDetails";
 
 
-export default function App({ postList=[]}) {
+export default function App({ postList}) {
   return (
     <>
       <Router>
@@ -17,7 +17,7 @@ export default function App({ postList=[]}) {
             <Route path="/giris" element={<Login />} />
             <Route path="/kayit" element={<Register />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:index" element={<BlogDetails />} />
+             <Route path="/blog/:id" element={<BlogDetails />} />
           </Routes>
         </Layout>
       </Router>
