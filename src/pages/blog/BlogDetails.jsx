@@ -1,10 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
-export default function BlogDetails() {
+export default function BlogDetails({user}) {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  const dialogRef = useRef  (null);
+
+
+
+  function handleOpenForm() {
+    if (user) {
+      alert(`Yorum yapmanız için giriş yapmanız gerekiyor.`);
+    } else {
+      dialogRef.current.showModal();
+    }
+  }
+
+  // function handleCloseForm() {
+  //   dialogRef.current.close();
+  // };
+
+
 
   useEffect(() => {
     async function fetchPost() {
@@ -33,18 +50,31 @@ export default function BlogDetails() {
           <p>{post.brief}</p>
         </div>
       </div>
-
+      <br />
       <div className="pageContentWrapper">
-        <div className="paragraph">{post.content}</div>
+      <div className="paragraph">{post.content}</div>
 
+      <button className="fixBtn button-secondary" onClick={handleOpenForm}
+      disabled={user}
+      >
+        <span className="icon-comment"></span> Yorum Yap
+      </button>
+      <br />
+      <br />
         <div className="commentWrapper">
-          <form>
-            <label htmlFor="comment">Yorum Yap</label>
-            <textarea name="comment" id="comment"></textarea>
-            <button className="fixBtn button-secondary">
-              <span className="icon-comment"></span> Yorum Yap
-            </button>
-          </form>
+      <br />
+      <br />
+        <dialog ref={dialogRef}>
+          <div>
+            <form>
+              <label htmlFor="comment">Yorum Yap</label>
+              <textarea name="comment" id="comment"></textarea>
+              <button className="fixBtn button-secondary">
+                <span className="icon-comment"></span> Yorum Yap
+              </button>
+            </form>
+          </div>
+        </dialog>
         </div>
       </div>
     </>
