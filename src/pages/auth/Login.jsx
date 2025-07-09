@@ -20,7 +20,8 @@ export default function Login() {
     if (data && data.email === email && data.sifre === sifre) {
       localStorage.loggedInUser = JSON.stringify(data);
       navigate('/'); // giriş başarılıysa anasayfaya yönlendir
-    } else {
+    } 
+    else {
       alert('E-posta veya şifre hatalı!');
     }
   };

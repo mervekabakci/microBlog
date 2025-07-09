@@ -12,4 +12,8 @@
     max-width:1200px;
     margin: 0 auto;
     min-height: calc(100vh - 130px);
+    @media screen and (max-width:991.98px) {
+        padding-left:16px;
+        padding-right: 16px;
+    }
 }

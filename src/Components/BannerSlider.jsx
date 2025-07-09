@@ -17,10 +17,13 @@ export default function BannerSlider({ postList }){
 
                     <SwiperSlide>
                         <div key={post.id} className="desc">
-                            <div className="title">
-                                {post.title}
+                            <span className="icon-pen-write"></span>
+                            <div>
+                                <div className="title">
+                                    {post.title}
+                                </div>
+                                <p>{post.brief}</p>
                             </div>
-                            <p>{post.brief}</p>
                         </div>
                     </SwiperSlide>
                 ))}

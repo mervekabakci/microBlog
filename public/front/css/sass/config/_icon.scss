@@ -25,10 +25,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
 .icon-dark-mode:before {
-  content: "\e916";
+  content: "\e918";
 }
 .icon-light-mode:before {
+  content: "\e919";
+}
+
+.icon-info:before {
+  content: "\e916";
+}
+.icon-pen-write:before {
   content: "\e917";
 }
 .icon-search:before {
