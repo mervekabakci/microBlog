@@ -20,6 +20,9 @@ export default function BlogDetails({ user }) {
       dialogRef.current.showModal();
     }
   }
+  function handleCloseDialog(){
+    dialogRef.current.close();
+  }
 
   if (isLoading) return <div>Yükleniyor...</div>;
   if (!post) return <div>İçerik bulunamadı.</div>;
@@ -76,7 +79,7 @@ export default function BlogDetails({ user }) {
       <dialog ref={dialogRef}>
         <div className="dialogHead">
           <div className="dialogTitle">"{post.title}" blog yazısı için yorum yap</div>
-          <button className="closeBtn"><span className="icon-cross"></span></button>
+          <button onClick={handleCloseDialog} className="closeBtn"><span className="icon-cross"></span></button>
         </div>
         <div className="dialogBody">
           <div className="commentWrapper">
