@@ -51,7 +51,7 @@ export default function BlogDetails({ user }) {
             >
             <span className="icon-comment"></span> <span>Yorum Yap</span> 
           </button>
-          {!user ? '<div className="note"><span className="icon-info"></span> <span>Yorum yapabilmek için üye girişi yapmanız gerekiyor.</span></div>' : ''}
+          {!user ? <div className="note"><span className="icon-info"></span> <span>Yorum yapabilmek için üye girişi yapmanız gerekiyor.</span></div> : ''}
         </div>
 
         <div className="commentResult">
