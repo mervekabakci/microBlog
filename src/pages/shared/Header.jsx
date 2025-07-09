@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function Header({ user, darkMode,setDarkMode, setShiningMode}) {
+export default function Header({ user, darkMode,setDarkMode, setShiningMode, handleLogout }) {
     const handleClickOpenMenu = (e) => {
         const centerContent = document.querySelector(".center");
         const navbarContent = document.querySelector(".navbar");
@@ -16,7 +16,12 @@ export default function Header({ user, darkMode,setDarkMode, setShiningMode}) {
                 <div className="container-md header">
                     <Link className="navBrands" to="/">MicroBlog</Link>
                     <div className="otherButtons d-md-none">
-                        {user ? <a href="#" className="userButton"><span className="icon-user"></span></a>
+                        {user ? (
+                            <>
+                                <a href="#" className="userButton"><span className="icon-user"></span></a>
+                                <a href="#" className="userLogOut"><span className="icon-logout"></span></a>
+                            </>
+                        )
                             : ""
                         }
                         <a href="#" className="navToggler" onClick={handleClickOpenMenu}>
@@ -36,7 +41,13 @@ export default function Header({ user, darkMode,setDarkMode, setShiningMode}) {
                         </ul>
                         <div className="buttons">
                             {user ?
-                                <Link className="userButton d-none d-md-flex" to="/giris"><span className="icon-user"></span></Link>
+                             (
+                                <>
+                                    <Link className="userButton d-none d-md-flex" to="/giris"><span className="icon-user"></span></Link>
+                                    <a href="#" onClick={handleLogout} className="userLogOut"><span className="icon-logout"></span></a>
+                                </>
+                                )
+
                                 : (
                                     <>
                                         <Link className="fixBtn button-primary" to="/giris">Giriş Yap</Link>

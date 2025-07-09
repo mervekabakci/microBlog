@@ -45,15 +45,15 @@ $colors: (
   "tertiary": $tertiary,
   "white": $white,
   "black": $black,
-  "gray-100":$gray-100,
-  "gray-200":$gray-200,
-  "gray-300":$gray-300,
-  "gray-400":$gray-400,
-  "gray-500":$gray-500,
-  "gray-600":$gray-600,
-  "gray-700":$gray-700,
-  "gray-800":$gray-800,
-  "gray-900":$gray-900,
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
 );
 
 //bg-primary seklınde burada tanımlanan renklerı kullanarak bg rengını class ıle degıstırebılır
@@ -74,55 +74,53 @@ $colors: (
   @each $name, $color in $colors {
     .button {
       &-#{$name} {
-        background-color: $color !important;
-        border: 1px solid $color !important;
-        transition: all 0.3s linear;
+        &:not(.disabled) {
+          background-color: $color !important;
+          border: 1px solid $color !important;
+          transition: all 0.3s linear;
 
-        @media screen and (min-width: 992px) {
-          &:hover {
-            color: $color !important;
-          }
-        }
-
-        @if $name =="white" {
-          color: $primary !important;
-
-          &:after {
-            background-color: $primary !important;
-          }
-        }
-
-        @else {
-          color: $white !important;
-
-          &:after {
-            background-color: $white !important;
-          }
-        }
-
-
-        &-outline {
-          background-color: rgba(0, 0, 0, 0) !important;
-          color: $color !important;
-          border-color: $color !important;
-
-          &:after {
-            background-color: $color !important;
-          }
-
-          @media screen and (min-width:992px) {
+          @media screen and (min-width: 992px) {
             &:hover {
-              @if $name =="white" {
-                color: $primary !important;
-              }
+              color: $color !important;
+            }
+          }
 
-              @else {
-                color: $white !important;
-              }
+          @if $name == "white" {
+            color: $primary !important;
+
+            &:after {
+              background-color: $primary !important;
+            }
+          } @else {
+            color: $white !important;
+
+            &:after {
+              background-color: $white !important;
             }
           }
         }
 
+        &-outline {
+          &:not(.disabled) {
+            background-color: rgba(0, 0, 0, 0) !important;
+            color: $color !important;
+            border-color: $color !important;
+
+            &:after {
+              background-color: $color !important;
+            }
+
+            @media screen and (min-width: 992px) {
+              &:hover {
+                @if $name == "white" {
+                  color: $primary !important;
+                } @else {
+                  color: $white !important;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -133,13 +131,11 @@ $colors: (
 
 //container breakpoint tanımlamaları
 @mixin min($bp, $max: "null", $device: "screen") {
-  @if $max =="null" {
+  @if $max == "null" {
     @media only #{$device} and (min-width: #{$bp}) {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @media only #{$device} and (min-width: #{$bp}) and (max-width: #{$max}) {
       @content;
     }
@@ -185,14 +181,12 @@ $container-sizes: (
     margin: 0 auto;
 
     @each $bp, $container-size in $container-sizes {
-      @include min(#{bp(#{$bp})
-
-    }) {
-      width: 100%;
-      max-width: container(#{$bp});
+      @include min(#{bp(#{$bp})}) {
+        width: 100%;
+        max-width: container(#{$bp});
+      }
     }
   }
-}
 }
 
 @each $bp, $container-size in $container-sizes {
@@ -228,7 +222,7 @@ row {
   padding-left: calc(#{$gutter} / 2);
   padding-right: calc(#{$gutter} / 2);
 
-  &>* {
+  & > * {
     width: 100%;
   }
 }
@@ -236,10 +230,8 @@ row {
 //col sınıfları olusturmak ıcın
 //$breakpoint bunun ıcerısınde tanımlanmıs olan px olculerını ekran olculerı olarak alır.
 @mixin generate-cols($breakpoint, $min-width) {
-
   //1 den 12 ye kadar değer uretıyoruz burayı arttırdıkca col-1 den col-12 ye kadar gıderken bu aralıgı buradan degıstırebılırız
   @for $i from 1 through 12 {
-
     //burada da media query icin classlarımızı belırlıyoruz
     //col-md-576px gibi degerlerı css ıcerısınde tum belırtılen pointlerle bırlıkte olusturur ve bız bunları class olarak kullanırız.
     .col-#{$breakpoint}-#{$i} {
@@ -273,7 +265,6 @@ $display-utils: (
 );
 
 @mixin generate-display-classes($displays, $breakpoints) {
-
   // Global sınıflar: d-flex, d-block, vs.
   @each $key, $value in $displays {
     .d-#{$key} {

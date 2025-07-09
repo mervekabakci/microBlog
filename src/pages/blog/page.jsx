@@ -1,21 +1,17 @@
 import { useEffect, useState } from "react";
 import Card from "../../Components/Card";
+import usePosts from "../../Components/usePosts";
 
 export default function Blog() {
-  const [postList, setPostList] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const { postList, isLoading } = usePosts();
 
-  useEffect(() => {
-    fetch("https://blog.muratakdemir.tr/BlogPostForEveryone/getall")
-      .then((res) => res.json())
-      .then((data) => {
-        setPostList(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
 
   if (isLoading) return <div>Yükleniyor...</div>;
 
-  return <Card postList={postList} />;
+  return(
+    <>
+      <h1>Tüm Bloglar</h1>
+      <Card postList={postList} />
+    </>
+  );
 }

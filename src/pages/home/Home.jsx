@@ -2,26 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BannerSlider from "../../Components/BannerSlider";
 import Card from "../../Components/Card";
+import usePosts from "../../Components/usePosts";
 
 export default function Home() {
-  const [postList, setPostList] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const res = await fetch("https://blog.muratakdemir.tr/BlogPostForEveryone/getall");
-        const data = await res.json();
-        setPostList(data);
-      } catch (error) {
-        console.error("Veri alınırken hata oluştu", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchPosts();
-  }, []);
+  const { postList, isLoading } = usePosts();
 
   return (
     <div className="container-md"> 
@@ -33,7 +17,7 @@ export default function Home() {
         <div className="text-center">Yükleniyor...</div>
       ) : (
         <>
-          <Card postList={postList.slice(0, 3)} />
+          <Card postList={postList.slice(0, 8)} />
           <div className="text-center">
             <Link to="/blog" className="fixBtn button-primary allBlogs">
               Tüm Bloglar
