@@ -16,7 +16,11 @@ export default function Layout({ children }) {
         }
     }, [shiningMode]);
 
-
+    const handleLogout = () => {
+        setUser(null);
+        localStorage.removeItem('loggedInUser'); 
+        setShowLogin(true);
+    }
     
     useEffect(() => {
         if (darkMode) {
@@ -48,11 +52,11 @@ export default function Layout({ children }) {
                 onSwitchRegister={handleSwitchRegister}
                 onSwitchLogin={handleSwitchLogin}
                 onSwitchHome={handleShowHome}
-                setShowLogin={setShowLogin}
-                setDarkMode={setDarkMode}
+                showLogin={showLogin}
                 darkMode={darkMode}
-                setShiningMode={setShiningMode}
-                shiningMode={shiningMode}
+                setDarkMode={setDarkMode}
+                setShiningMode ={setShiningMode}
+                handleLogout ={handleLogout}
             />
             <div className="center">{children}</div>
             <Footer />
